@@ -1,0 +1,18 @@
+
+<div class="game-board">
+      <!-- ngFor is like a for loop-->
+    <div *ngFor="let row of board; let i = index" class="game-row">
+        <div *ngFor="let cell of row; let j = index" class="game-cell" (click)="makeMove(i, j)" appHighlight>
+            <span [attr.row-index]="i" [attr.col-index]="j" class="game-cell-content">{{ cell }}</span>
+          </div>
+    </div>
+  </div>
+
+  <!-- ngIf is responsible for conditional rendering -->
+  <div *ngIf="winner" class="winner-announcement">
+    <!-- this is called interpolation -->
+    {{ winner }} has won the game!
+  </div>
+  
+  <button (click)="reset()">Reset</button>
+  

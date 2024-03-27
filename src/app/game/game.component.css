@@ -1,0 +1,54 @@
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns with equal size */
+    gap: 10px; /* Adds space between the cells */
+    margin: 20px auto; /* Centers the board and adds margin */
+    width: 80vw; /* Responsive width based on the viewport width */
+    height: 80vw; /* Keep the height the same as the width for square cells */
+    max-width: 500px; /* Maximum width */
+    max-height: 500px; /* Maximum height to maintain aspect ratio */
+    background-color: #333; /* Background color of the board */
+    padding: 10px; /* Padding around the grid */
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5); /* Adds shadow to the board */
+    border-radius: 20px; /* Rounds the corners of the board */
+}
+
+.game-row {
+    display: contents; /* Allows the children to use the grid layout */
+}
+
+.game-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222; /* Dark background for cells */
+    border-radius: 10px; /* Rounded corners for cells */
+    color: white; /* Color for the X symbol */
+    position: relative; /* For positioning the ::after content */
+}
+
+.game-cell::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%; /* Maintains aspect ratio */
+}
+
+.game-cell-content {
+    font-size: 5em;
+    pointer-events: none; /* Prevents the click event on the content */
+}
+
+.game-cell-content.O {
+    color: #4faaff; /* Blue color for O */
+}
+
+.game-cell:hover {
+    background-color: #2a2a2a; /* Lighter background on hover */
+}
+
+.winner-announcement {
+    margin: 20px;
+    text-align: center;
+    font-size: 2em;
+    color: green;
+}
